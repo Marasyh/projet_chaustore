@@ -1,0 +1,30 @@
+body {
+    padding: 0%;
+    margin: 0%;
+}
+
+#gauche{
+    float: left;
+    width: 20%;
+    background-color: rgb(196, 193, 193);
+    color: rgb(0, 0, 0);
+    padding-left: 60px;
+}
+
+#bienvenu{
+    background-color: rgb(99, 22, 22);
+    float: left;
+    width: 100%;
+    color: antiquewhite;
+    text-align: center;
+}
+
+a{text-decoration: none;
+color: rgb(37, 1, 1);}
+
+.brand{
+    font-size: 2vw;
+    background-color: rgb(175, 173, 173);
+    width: 100%;
+    height: 10%;
+}
