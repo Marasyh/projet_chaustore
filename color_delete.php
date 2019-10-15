@@ -25,22 +25,21 @@
         <p> Products <a href="product.php"> <button>  Go to products</button> </a></p>
 </div>
 
-        <p class="brand"> Brand </p> 
+        <p class="brand"> Color </p> 
 
 
 <?php
 if(!empty($_GET['id'])){
     $id= $_GET['id'];
 
-    $count="SELECT COUNT(id) id FROM brand WHERE id=$id";
+    $count="SELECT COUNT(id) exist FROM color WHERE id=$id";
     $result_count = mysqli_query($bdd,$count);
     
     $result_column = mysqli_fetch_array($result_count);
 
                 //on demande résultat de fetch 
-    if($result_column['id'] ==2){
-            
-    $supprimer="delete from brand where id=1";
+    if($result_column['exist'] ==1){
+    $supprimer="delete from color where id=$id";
     $result_sup=mysqli_query($bdd,$supprimer);
         
      if($result_sup){

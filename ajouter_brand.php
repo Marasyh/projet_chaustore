@@ -32,21 +32,23 @@
 if(!empty($_GET['id'])){
     $id= $_GET['id'];
 
-    $count="SELECT COUNT(id) id FROM brand WHERE id=$id";
+    $count="SELECT COUNT(id) exist FROM brand WHERE id=$id";
     $result_count = mysqli_query($bdd,$count);
     
     $result_column = mysqli_fetch_array($result_count);
 
                 //on demande résultat de fetch 
-    if($result_column['id'] ==2){
-            
-    $supprimer="delete from brand where id=1";
+    if($result_column['exist'] ==1){
+    $supprimer="update brand set name="" where id=$id";
+
+ 
+
     $result_sup=mysqli_query($bdd,$supprimer);
         
      if($result_sup){
-         echo "le produit a bien été éffacé";
+         echo "le produit a bien été ajouté";
                 }
-        else { echo "erreur de suppression"; }
+        else { echo "erreur d'ajout'"; }
         }
         else {
             echo "numéro n'existe pas";

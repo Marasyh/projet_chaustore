@@ -57,8 +57,8 @@
                     <td> <input type="text" id="name" minlength="4" maxlength="8" size="10"> </td>
                                                                 <!-- variable de while et non php echo --> 
                     <td> <a href ="supprimer_brand.php?id=<?php echo $result['id'];?>" title="supprimer"> <input type="submit" name="supprimer" value="supprimer"> </a> </td> 
-                    <td> <a href="modifier_brand.php?id=<?php echo $result['id'];?>"title="modifier"> <input type="submit" name="modifier" value="Modifier"></td> 
-                    <td> <input type="submit" name="ajouter" value="Ajouter"></td
+                    <td> <a href="ajouter_brand.php?id=<?php echo $result['id'];?>"title="ajouter"> <input type="submit" name="ajouter" value="Ajouter"></a></td> 
+                    
                  </tr>
 
              </tbody>
