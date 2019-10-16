@@ -41,10 +41,9 @@
                         <th> Identifiant </th> 
                         <th> Nom </th> 
                         <th> Photos </th> 
-                        <th> Votre choix</th> 
+                       
                         <th> </th> 
-                        <th> </th>   
-                        <th> </th>                
+                        <th> <a href="ajouter_brand.php"> <input type="submit" name="ajouter" value="Ajouter"></a> </th>                
                     </tr>
 
             </thead>
@@ -54,10 +53,10 @@
                     <td> <?php echo $result  ['id'] ; ?> </td> 
                     <td> <?php echo $result  ['name'] ; ?> </td>
                     <td> <?php echo $result ['logo'] ; ?> </td>
-                    <td> <input type="text" id="name" minlength="4" maxlength="8" size="10"> </td>
+                   
                                                                 <!-- variable de while et non php echo --> 
                     <td> <a href ="supprimer_brand.php?id=<?php echo $result['id'];?>" title="supprimer"> <input type="submit" name="supprimer" value="supprimer"> </a> </td> 
-                    <td> <a href="ajouter_brand.php?id=<?php echo $result['id'];?>"title="ajouter"> <input type="submit" name="ajouter" value="Ajouter"></a></td> 
+                    <td></td> 
                     
                  </tr>
 

@@ -28,37 +28,45 @@
         <p class="brand"> Brand </p> 
 
 
-<?php
-if(!empty($_GET['id'])){
-    $id= $_GET['id'];
+        <?php
+             
+             $ajouter="insert into brand(name) values('')";
+                $result_add=mysqli_query($bdd,$ajouter);
+   ?>
+       <?php
+                   $select='select * from brand;';
+                   $id_tableau=mysqli_fetch_row($select);
+ ?>
+<table border="1">
+        <thead>
+        <tr>
+           <th> Id </th>
+            <th> nom </th>
+            <th>photos </th>
+            <th> </th>
+          </tr>
+</thead>
 
-    $count="SELECT COUNT(id) exist FROM brand WHERE id=$id";
-    $result_count = mysqli_query($bdd,$count);
-    
-    $result_column = mysqli_fetch_array($result_count);
 
-                //on demande résultat de fetch 
-    if($result_column['exist'] ==1){
-    $supprimer="update brand set name="" where id=$id";
-
- 
-
-    $result_sup=mysqli_query($bdd,$supprimer);
+<tbody>
+        <tr>
+        <td> <?php echo $id_tableau['id'];?></td>
+          <td><input type="text"/><?php $ajouter?> </td>
+          <td> <input type="text"/></td>
+          <td><a href ="ajouter_brand.php?id_student=<?php echo $result_column['id_student'];?>" title="ajouter"> <input type="submit" value="Ajouter"></a>  </td>
         
-     if($result_sup){
+          </tr>
+</tbody>
+</table>
+  
+
+  <?php                
+  if(!empty($ajouter[''])){
          echo "le produit a bien été ajouté";
                 }
-        else { echo "erreur d'ajout'"; }
-        }
-        else {
-            echo "numéro n'existe pas";
-        }
-     
-}
+        else { echo "le produit n'a pas été ajouté"; }
 
 ; ?>
-    
-        
         </body>
 
 </html>
