@@ -30,19 +30,18 @@
 
         <?php
 
-            $request="select * from brand;";
+            $request="select * from category;";
             $resultat =mysqli_query($bdd,$request);
       ?>
                 
                 
-                <form methd="POST" action="ajouter_brand.php">
+                <form methd="POST" action="category_brand.php">
                 
                 <table border="1">
                      <thead>
                         <tr> 
                             <th><label for="identifiant"> Identifiant </label> </th> 
                             <th><label for="name"> Nom </label> </th> 
-                             <th> <label for="logo"> Logo </label></th>  
                             <th>  </th> 
                         </tr>
                      </thead>
@@ -60,17 +59,14 @@
                              <input type="text" id="name" name="name" value="<?php if(!empty($_POST['name'])) echo $_POST['name'];?>"/>
                              </label> </td>
                 
-                            <td> <label for="logo"> <input type="text" id="logo" name="logo" value="<?php if(!empty($_POST['logo'])) echo $_POST['logo'];?>"/> 
-                            </label></td>
                             
-                            <td> <a href="ajouter_brand.php"> <input type="submit" name="ajouter" value="Ajouter"></a> </td>
+                            <td> <a href="ajouter_category.php"> <input type="submit" name="ajouter" value="Ajouter"></a> </td>
                 </tr>
 
                 <?php while($result = mysqli_fetch_array($resultat)) { ?>
                 <tr>
                     <td> <?php echo $result  ['id'] ; ?> </td> 
                     <td> <?php echo $result  ['name'] ; ?> </td>
-                    <td> <?php echo $result ['logo'] ; ?> </td>
                    
                                                                 <!-- variable de while et non php echo --> 
                     <td> <a href ="supprimer_brand.php?id=<?php echo $result['id'];?>" title="supprimer"> <input type="submit" name="supprimer" value="supprimer"> </a> </td> 

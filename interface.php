@@ -20,6 +20,13 @@
 
 ?>
 
+<?php
+if(!empty($_GET['success']) AND $_GET['success']==1){
+?>
+    <p>ÇA MARCHE !</p>
+<?php
+}
+?>
 
 <div id="gauche">
         <p> Brand  <a href="brand.php"> <button>  Go to brand</button> </a> </p> 

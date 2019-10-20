@@ -29,26 +29,41 @@
 
 
         <?php 
+            $name=$_POST['name'];  
+            $logo=$_POST['logo'];
+
 
             $request='select * from brand;';
             $resultat =mysqli_query($bdd,$request);
 
+            $ajouter="INSERT INTO brand (name,logo) VALUES('$name','$logo')";
+             $result_add=mysqli_query($bdd,$ajouter);
+
         ?>
 
+            <form method="post" action="ajouter_brand.php">
                 <table border="1">
             <thead>
                     <tr> 
-                        <th> Identifiant </th> 
-                        <th> Nom </th> 
-                        <th> Photos </th> 
-                       
-                        <th> </th> 
-                        <th> <a href="ajouter_brand.php"> <input type="submit" name="ajouter" value="Ajouter"></a> </th>                
+                        <th><label for="identifiant"> Identifiant </label> </th> 
+                        <th><label for="name"> Nom </label> </th> 
+                        <th> <label for="logo"> Logo </label></th> 
+                       <th>  </th>                                        
                     </tr>
 
             </thead>
-                    <?php while($result = mysqli_fetch_array($resultat)) { ?>
+                    
             <tbody>
+                <tr>
+                    <td> <input type="text" id="identifiant" name="identifiant" value="<?php if(!empty($_POST['id'])) echo $_POST['id'];?>"/> </td>
+                
+                    <td> <input type="text" id="name" name="name" value="<?php if(!empty($_POST['name'])) echo $_POST['name'];?>"/> </td>
+                
+                    <td> <input type="text" id="logo" name="logo" value="<?php if(!empty($_POST['logo'])) echo $_POST['logo'];?>"/> </td>
+                    <td> <a href="ajouter_brand.php"> <input type="submit" name="ajouter" value="Ajouter"></a> </td>
+                </tr>
+
+                <?php while($result = mysqli_fetch_array($resultat)) { ?>
                 <tr>
                     <td> <?php echo $result  ['id'] ; ?> </td> 
                     <td> <?php echo $result  ['name'] ; ?> </td>
@@ -56,12 +71,13 @@
                    
                                                                 <!-- variable de while et non php echo --> 
                     <td> <a href ="supprimer_brand.php?id=<?php echo $result['id'];?>" title="supprimer"> <input type="submit" name="supprimer" value="supprimer"> </a> </td> 
-                    <td></td> 
+                    <td> <a href ="modifier_brand.php?id=<?php echo $result['id'];?>" title="modifier"> <input type="submit" name="modifier" value="modifier"> </a></td> 
                     
                  </tr>
 
              </tbody>
                  
+            </form>
        
        <?php  } ?>
         
